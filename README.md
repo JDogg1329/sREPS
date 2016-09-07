@@ -9,3 +9,7 @@
 • Hoan Le (100577452)
 
 •	Niruban Nirmalan (1622463)
+
+#Installation instructions
+See the wiki >
+https://github.com/JDogg1329/sREPS/wiki/Installation
