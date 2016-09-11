@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include 'header.php';
 ?>
 <div class="main-container">
@@ -7,7 +7,7 @@
 		<article>
 			<header>
 			<h1>Register</h1>
-				<p> 
+				<p>
 					<div id="contact-form">
 						<form action="reg.php" method="post">
 							<label for="email">Email: </label> <input type="text" id="email" class="input" name="email" required /><br>
@@ -18,14 +18,14 @@
 						</form>
 					</div>
 				</p>
-				
+
 			</header>
 
 		</article>
 	</div> <!-- #main -->
 </div> <!-- #main-container -->
 
-<?php 
+<?php
 	include 'footer.php';
 ?>
 

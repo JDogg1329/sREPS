@@ -1,4 +1,4 @@
-<?php 
+<?php
 include 'header.php';
 ?>
 <div class="main-container">
@@ -8,7 +8,7 @@ include 'header.php';
 			<header>
 				<h1>Login</h1>
 				<div id="contact-form">
-				<p> 
+				<p>
 					<form method="post" action="login.php">
 						<label for="email">Email: </label> <input type="text" id="email" class="input" name="email" required /><br>
 						<label for="password">Password: </label> <input type="password" id="password" class="input" name="password" required /><br>
@@ -20,16 +20,12 @@ include 'header.php';
 			</header>
 		</article>
 
-		<!-- <aside>
-		<h3>You are not logged in</h3>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
-		</aside>-->
 
 	</div> <!-- #main -->
 </div> <!-- #main-container -->
 
 
-<?php 
+<?php
 	include 'footer.php';
 ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

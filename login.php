@@ -16,7 +16,7 @@
 								$dbuser = "root";
 								$dbpass = "";
 
-								try 
+								try
 								{
 									$dbconn = new PDO ("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
 
@@ -27,15 +27,15 @@
 
 									$r = $q->fetch();
 								}
-								
-								catch(PDOException $e) 
+
+								catch(PDOException $e)
 								{
 									echo $e->getMessage();
 								}
 
 
 								// if result returned only has one set success
-								if(!empty($r)) 
+								if(!empty($r))
 								{
 									echo "<h2 align='center'>Login successful! <br />";
 
@@ -45,16 +45,16 @@
 									{
 										$_SESSION['admin'] = '1';
 									}
-									
+
 									// Print a nice welcome message
 									echo "Welcome to the system " . $_POST['email'] . "! <br>";
 									echo "Redirecting now.....</h2>";
 									$logged = 1;
-									
+
 									// redirect to next page
 									header( "refresh:1;url=index.php" );
 								}
-								else 
+								else
 								{
 									echo "Invalid login <br>";
 									header( "refresh:4;url=index.php" );
@@ -66,10 +66,6 @@
 				</header>
 			</article>
 
-               <!-- <aside>
-                    <h3>You are not logged in</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
-                </aside>-->
 		</div> <!-- #main -->
 	</div> <!-- #main-container -->
 

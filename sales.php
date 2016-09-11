@@ -1,20 +1,16 @@
 <?php
     session_start();
 	include 'header.php';
-
 ?>
         <div class="main-container">
             <div class="main wrapper clearfix">
 
 	<?php
-
 		$host = "localhost";
 		$user = "root"; // your user name
 		$pwd = ""; // your password
 		$sql_db = "srepsdb"; // your database
-
 		$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-
 		if (!$conn)
 		{
 			// Displays an error message
@@ -23,16 +19,13 @@
 		else
 		{
 			$query = "SELECT * FROM sale";
-
 			$result = mysqli_query($conn, $query);
-
 			if(!$result)
 			{
 				echo "<p>Something is wrong with ", $query, "</p>";
 			}
 			else
 			{
-
 			}
 		}
 	?>
@@ -42,7 +35,6 @@
 				<label>
 					<?php
 						$conn2 = @mysqli_connect($host, $user, $pwd, $sql_db);
-
 						if (!$conn2)
 						{
 							// Displays an error message
@@ -51,9 +43,7 @@
 						else
 						{
 							$query2 = "SELECT item_name FROM item";
-
 							$result2 = mysqli_query($conn2, $query2);
-
 							if(!$result2)
 							{
 								echo "<p>Something is wrong with ", $query, "</p>";
@@ -61,7 +51,6 @@
 							else
 							{
 								echo '<select name="item_name">';
-
 								while ($row2 = mysqli_fetch_assoc($result2))
 								{
 									echo '<option>',$row2["item_name"],'</option>';
@@ -89,7 +78,6 @@
         <label>
           <?php
             $conn2 = @mysqli_connect($host, $user, $pwd, $sql_db);
-
             if (!$conn2)
             {
               // Displays an error message
@@ -98,9 +86,7 @@
             else
             {
               $query2 = "select sale_id from sale";
-
               $result2 = mysqli_query($conn2, $query2);
-
               if(!$result2)
               {
                 echo "<p>Something is wrong with ", $query, "</p>";
@@ -108,12 +94,10 @@
               else
               {
                 echo '<select name="sale_id">';
-
                 while ($row2 = mysqli_fetch_assoc($result2))
                 {
                   echo '<option>',$row2["sale_id"],'</option>';
                 }
-
                 echo "</select>";
               }
             }
@@ -124,6 +108,7 @@
       </form>
     </div>
 
+    <div id="contact-form">
 <?php
 	echo "<table id=\"salelist\" border=\"1\">";
 	echo "<tr>"
@@ -135,7 +120,6 @@
 	while ($row = mysqli_fetch_assoc($result))
 	{
 		$itemtable = "";
-
 		echo "<tr>";
 		echo "<td>",$row["sale_id"],"</td>";
 		echo "<td>",$row["user_email"],"</td>";
@@ -143,12 +127,11 @@
 		echo "<td>",$row["quantity"],"</td>";
 		echo "</tr>";
 	};
-
 	echo "</table>";
 ?>
             </div> <!-- #main -->
         </div> <!-- #main-container -->
-<br><br><br><br><br><br>
+<br><br><br><br><br><br></div>
 <?php
 	include 'footer.php';
 ?>
