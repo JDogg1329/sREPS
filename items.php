@@ -4,26 +4,22 @@
 session_start();
 include 'header.php';
 
-$host = "localhost";
-$user = "root"; // your user name
-$pwd = ""; // your password
-$sql_db = "srepsdb"; // your database
+$host = 'localhost';
+$user = 'root'; // your user name
+$pwd = ''; // your password
+$sql_db = 'srepsdb'; // your database
 
 $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
 //Displaying Table from Item database
-if (!$conn)
-{
-  // Displays an error message
-  echo "<p>Database connection failure</p>"; // not in production script
-}
-else
-{
-  //SQL query for selecting from table
-  $query = "select * from item";
+if (!$conn) {
+    // Displays an error message
+  echo '<p>Database connection failure</p>'; // not in production script
+} else {
+    //SQL query for selecting from table
+  $query = 'select * from item';
 
-  $result = mysqli_query($conn, $query);
-  ?>
+    $result = mysqli_query($conn, $query); ?>
   <div class="main-container">
     <div class="main wrapper clearfix">
 
@@ -57,48 +53,44 @@ else
 
 
           <div id="contact-form">
-            <h1>Item List</h1>
+            <h1>Inventory</h1>
 
             <?php
 
-            if(!$result)
-            {
-              //If something is wrong with the connection or query
-              echo "<p>Something is wrong with ", $query, "</p>";
-            }
-            else
-            {
-              //displaying table on page load
-              echo "<table id=\"itemlist\" border=\"1\">";
-              echo "<tr>"
-              ."<th scope=\"col\">ID</th>"
-              ."<th scope=\"col\">Name</th>"
-              ."<th scope=\"col\">Category</th>"
-              ."<th scope=\"col\">Quantity</th>"
-              ."<th scope=\"col\">Price</th>"
-              ."<th scope=\"col\">Edit</th>"
-              ."<th scope=\"col\">Delete</th>"
-              ."</tr>";
+            if (!$result) {
+                //If something is wrong with the connection or query
+              echo '<p>Something is wrong with ', $query, '</p>';
+            } else {
+                //displaying table on page load
+              echo '<table id="itemlist" border="1">';
+                echo '<tr>'
+              .'<th scope="col">ID</th>'
+              .'<th scope="col">Name</th>'
+              .'<th scope="col">Category</th>'
+              .'<th scope="col">Quantity</th>'
+              .'<th scope="col">Price</th>'
+              .'<th scope="col">Edit</th>'
+              .'<th scope="col">Delete</th>'
+              .'</tr>';
 
               //Fetch data and store into array. Run loop for each row of result return.
-              while ($row = mysqli_fetch_assoc($result))
-              {
-                $itemtable = "";
+              while ($row = mysqli_fetch_assoc($result)) {
+                  $itemtable = '';
 
-                echo "<tr>";
-                echo "<td>",$row["item_id"],"</td>";
-                echo "<td>",$row["item_name"],"</td>";
-                echo "<td>",$row["item_category"],"</td>";
-                echo "<td>",$row["item_quantity"],"</td>";
-                echo "<td>",$row["item_price"],"</td>";
-                echo "<td><form action='edititem.php' method='POST'><input type='hidden' name='item_id' value='".$row["item_id"]."'/><input type='submit' name='submit-btn' value='Edit' /></form></td>";
-                echo "<td><form action='deleteitem.php' method='POST'><input type='hidden' name='item_id' value='".$row["item_id"]."'/><input type='submit' name='submit-btn' value='Delete' /></form></td>";
-                echo "</tr>";
+                  echo '<tr>';
+                  echo '<td>',$row['item_id'],'</td>';
+                  echo '<td>',$row['item_name'],'</td>';
+                  echo '<td>',$row['item_category'],'</td>';
+                  echo '<td>',$row['item_quantity'],'</td>';
+                  echo '<td>',$row['item_price'],'</td>';
+                  echo "<td><form action='edititem.php' method='POST'><input type='hidden' name='item_id' value='".$row['item_id']."'/><input type='submit' name='submit-btn' value='Edit' /></form></td>";
+                  echo "<td><form action='deleteitem.php' method='POST'><input type='hidden' name='item_id' value='".$row['item_id']."'/><input type='submit' name='submit-btn' value='Delete' /></form></td>";
+                  echo '</tr>';
               }
 
-              echo "</table>";
+                echo '</table>';
             }
-          }
+}
           ?>
         </div>
 
@@ -119,14 +111,5 @@ include 'footer.php';
 
 <script src="js/main.js"></script>
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-  e.src='//www.google-analytics.com/analytics.js';
-  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-  ga('create','UA-XXXXX-X');ga('send','pageview');
-  </script>
 </body>
 </html>

@@ -1,27 +1,32 @@
-<?php 
-	session_start();
-	include 'header.php';
-?>
+<?php
+    session_start();
+    include 'header.php';
+    require_once 'stats.php'?>
 <div class="main-container">
 	<div class="main wrapper clearfix">
 
 	<article>
 		<header>
 			<?php
-				if (!isset($_SESSION['email'])) 
-					echo "<h1>Please login</h1>
+                if (!isset($_SESSION['email'])) {
+                    echo "<h1>Please login</h1>
 							<p>To use the sREPS system you need to login, if you don't have an account please register first.</p>";
-				else
-					echo "<h1>Welcome " , $_SESSION['email'] . "</h1>";
-			?>
+                } else {
+                    echo "<img src='https://raw.githubusercontent.com/JDogg1329/sREPS/master/wiki/logo.jpg'>";
+                    echo '<h1>Welcome to sREPS ' , $_SESSION['email'].'</h1>';
+                    echo '<p>Current date:', date('l jS \of F Y h:i:s A').'</p>';
+                    echo '<p>Total products in inventory: ', $num_rows;
+                    echo '<p>Total sales: ', $num_rows2;
+                }
+            ?>
 		</header>
 
 	</article>
 
 	</div> <!-- #main -->
 </div> <!-- #main-container -->
-<?php 
-	include 'footer.php';
+<?php
+    include 'footer.php';
 ?>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -29,14 +34,5 @@
 
 <script src="js/main.js"></script>
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-	(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-	function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-	e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-	e.src='//www.google-analytics.com/analytics.js';
-	r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-	ga('create','UA-XXXXX-X');ga('send','pageview');
-</script>
 </body>
 </html>

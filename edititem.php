@@ -10,46 +10,36 @@ include 'header.php';
 			<h1>Edit Item</h1>
 
 			<?php
-				$host = "localhost";
-				$user = "root"; // your user name
-				$pwd = ""; // your password
-				$sql_db = "srepsdb"; // your database
+                $host = 'localhost';
+                $user = 'root'; // your user name
+                $pwd = ''; // your password
+                $sql_db = 'srepsdb'; // your database
 
-				$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+                $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
-				$itemid = trim($_POST['item_id']);
+                $itemid = trim($_POST['item_id']);
 
-				if (!$conn)
-				{
-					// Displays an error message
-					echo "<p>Database connection failure</p>"; // not in production script
-				}
-				else
-				{
-					$query = "SELECT * FROM item where item_id = '$itemid'";
+                if (!$conn) {
+                    // Displays an error message
+                    echo '<p>Database connection failure</p>'; // not in production script
+                } else {
+                    $query = "SELECT * FROM item where item_id = '$itemid'";
 
-					$result = mysqli_query($conn, $query);
+                    $result = mysqli_query($conn, $query);
 
+                    if (!$result) {
+                        echo '<p class="wrong">Something is wrong with ', $query, '</p>';
+                    } else {
+                        //header('Location:items.php');
 
-					if(!$result)
-					{
-						echo "<p class=\"wrong\">Something is wrong with ", $query, "</p>";
-					}
-					else
-					{
-						//header('Location:items.php');
-
-						//seperate result into different variable
-						while ($row = mysqli_fetch_assoc($result))
-						{
-							$itemid = $row["item_id"];
-							$itemname = $row["item_name"];
-							$itemcategory = $row["item_category"];
-							$itemquantity = $row["item_quantity"];
-							$itemprice = $row["item_price"];
-						}
-
-			?>
+                        //seperate result into different variable
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $itemid = $row['item_id'];
+                            $itemname = $row['item_name'];
+                            $itemcategory = $row['item_category'];
+                            $itemquantity = $row['item_quantity'];
+                            $itemprice = $row['item_price'];
+                        } ?>
 					<!-- Put result into text box and allow user to change the value -->
 					<div id="contact-form">
 						<h1>Edit an Item</h1>
@@ -79,11 +69,12 @@ include 'header.php';
 						</form>
 					</div>
 			<?php
-					}
 
-				mysqli_close($conn);
-				}
-			?>
+                    }
+
+                    mysqli_close($conn);
+                }
+            ?>
 
 			<br><br>
 
@@ -93,7 +84,7 @@ include 'header.php';
 </div> <!-- #main-container -->
 
 <?php
-	include 'footer.php';
+    include 'footer.php';
 ?>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -101,14 +92,5 @@ include 'header.php';
 
 <script src="js/main.js"></script>
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-	(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-	function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-	e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-	e.src='//www.google-analytics.com/analytics.js';
-	r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-	ga('create','UA-XXXXX-X');ga('send','pageview');
-</script>
 </body>
 </html>
