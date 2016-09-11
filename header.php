@@ -18,20 +18,28 @@
 </head>
 <body>
 <div class="page-wrap">
-	<!--[if lt IE 7]>
-	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
+
 
 <div class="header-container">
 	<header class="wrapper clearfix">
 		<a href="index.php"><h1 class="title">sREPS</h1></a>
 		<nav>
 			<ul>
-				<?php if (!isset($_SESSION['email'])) echo "<li><a href='register.php'>Register</a></li>"; ?>
-				<?php if (!isset($_SESSION['email'])) echo "<li><a href='log.php'>Login</a></li>"; ?>
-				<?php if (isset($_SESSION['email'])) echo "<li><a href='sales.php'>Sales</a></li>" ?>
-				<?php if (isset($_SESSION['email'])) echo "<li><a href='items.php'>Items</a></li>" ?>
-				<?php if (isset($_SESSION['email'])) echo "<li><a href='logout.php'>Logout</a></li>"; ?>
+				<?php if (!isset($_SESSION['email'])) {
+    echo "<li><a href='register.php'>Register</a></li>";
+} ?>
+				<?php if (!isset($_SESSION['email'])) {
+    echo "<li><a href='log.php'>Login</a></li>";
+} ?>
+				<?php if (isset($_SESSION['email'])) {
+    echo "<li><a href='sales.php'>Sales</a></li>";
+} ?>
+				<?php if (isset($_SESSION['email'])) {
+    echo "<li><a href='items.php'>Inventory</a></li>";
+} ?>
+				<?php if (isset($_SESSION['email'])) {
+    echo "<li><a href='logout.php'>Logout</a></li>";
+} ?>
 				<!--<li><a href="#">nav ul li a</a></li>-->
 			</ul>
 		</nav>
