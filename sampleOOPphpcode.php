@@ -43,8 +43,7 @@ function getName(){
 
 // To refer to data stored in an object you proceed the name
 // of the attribute with $this->yourAttribute
-
-	return $this->name;
+return $this->name;
 }
 
 // A Construtor is used to initialize objects when they are
@@ -52,20 +51,19 @@ function getName(){
 function __construct(){
 
 // Generate a random id between 1 and 1000000
-
 $this->id = rand(100, 1000000);
 echo $this->id . " has been assigned<br />";
 
 // You access static attributes with Class::$static_att
 
-	Animal::$number_of_animals++;
+Animal::$number_of_animals++;
 }
 
 // A Destructor is called when all references to the object have
 // been unset. It cannot receive attributes
 
-	public function __destruct(){
-	echo $this->name . " is being destroyed :(";
+public function __destruct(){
+echo $this->name . " is being destroyed :(";
 }
 
 // You can also use magic setters and getters which are called
