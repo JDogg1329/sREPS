@@ -23,7 +23,7 @@
 
 <div class="header-container">
 	<header class="wrapper clearfix">
-		<h1 class="title">sREPS</h1>
+		<a href="index.php"><h1 class="title">sREPS</h1></a>
 		<nav>
 			<ul>
 				<?php if (!isset($_SESSION['email'])) echo "<li><a href='register.php'>Register</a></li>"; ?>
