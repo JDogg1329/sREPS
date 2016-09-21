@@ -10,7 +10,7 @@ include 'header.php';
 				<div id="contact-form">
 				<p>
 					<form method="post" action="login.php">
-						<label for="email">Email: </label> <input type="text" id="email" class="input" name="email" required /><br>
+						<label for="email">Email: </label> <input type="email" id="email" class="input" name="email" required /><br>
 						<label for="password">Password: </label> <input type="password" id="password" class="input" name="password" required /><br>
 						<label>&nbsp; </label> <input type="submit" value="Log In" class="button" />
 						<input type="reset" value="Cancel" class="button" />

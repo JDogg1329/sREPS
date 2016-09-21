@@ -10,7 +10,7 @@
 				<p>
 					<div id="contact-form">
 						<form action="reg.php" method="post">
-							<label for="email">Email: </label> <input type="text" id="email" class="input" name="email" required /><br>
+							<label for="email">Email: </label> <input type="email" id="email" class="input" name="email" required /><br>
 							<label for="password">Password: </label> <input type="password" id="password" class="input" name="password" required /><br>
 							<label for="name">Name: </label> <input type="text" id="name" class="input" name="name" required /><br>
 							<label>&nbsp; </label> <input type="submit" value="Submit" class="button" />
