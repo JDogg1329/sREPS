@@ -11,6 +11,8 @@
                 if (!isset($_SESSION['email'])) {
                     echo "<h1>Please login</h1>
 							<p>To use the sREPS system you need to login, if you don't have an account please register first.</p>";
+              echo "<a href='log.php' class='btn btn-success' role='button'>Login</a>  ";
+              echo "<a href='register.php' class='btn btn-warning' role='button'>Register</a>";
                 } else {
                     echo "<img src='https://raw.githubusercontent.com/JDogg1329/sREPS/master/wiki/logo.jpg'>";
                     echo '<h1>Welcome to sREPS ' , $_SESSION['email'].'</h1>';

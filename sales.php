@@ -23,6 +23,7 @@
             }
         }
     ?>
+    <center><h1>Sales</h1></center>
 		<div id="contact-form">
 			<h1>Add a Sale</h1>
 			<form action="addrecord.php" method="post">

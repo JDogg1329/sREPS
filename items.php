@@ -23,7 +23,7 @@ if (!$conn) {
   <div class="main-container">
     <div class="main wrapper clearfix">
 
-
+      <center><h1>Items</h1></center>
           <!-- ID for CSS -->
           <div id="contact-form">
             <h1>Add an Item</h1>
