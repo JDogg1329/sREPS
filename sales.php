@@ -118,7 +118,7 @@
         echo '<td>',$row['item_name'],'</td>';
         echo '<td>',$row['date'],'</td>';
         echo '<td>',$row['sale_quantity'],'</td>';
-        echo '<td>',$row['totalprice'],'</td>';
+        echo '<td>$',$row['totalprice'],'</td>';
         echo "<td><form action='deletesales.php' method='POST'><input type='hidden' name='sale_id' value='".$row['sale_id']."'/><input type='submit' name='submit-btn' value='Delete' /></form></td>";
         echo '</tr>';
     }
