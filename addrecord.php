@@ -11,11 +11,13 @@ session_start();
         //store POST array to variable
         $quantity = $_POST['item_quantity'];
         $itemname = $_POST['itemname'];
+        //$iteminsertid = $_POST['iteminsertid'];
 
-        $query = "insert into sale (sale_id, user_email, date, quantity)
+
+        $query = "insert into sale (sale_id, user_email, date, sale_quantity)
 				value (NULL, '$user_email', '$currentdate', '$quantity')";
 
-        $query2 = "UPDATE item SET item_quantity=(item_quantity - '$quantity') WHERE item_name='$itemname'";
+        $query2 = "UPDATE item SET item_quantity=(item_quantity - '$quantity') WHERE item_id='$itemname'";
 
         //exceute query to database
         $result = mysqli_query($conn, $query);
@@ -26,6 +28,8 @@ session_start();
         } else {
             //if successful then go to sale page
             header('Location:sales.php');
+            //echo "$query";
+            //echo "<br>";
         }
 
         mysqli_close($conn);

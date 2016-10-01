@@ -37,7 +37,7 @@
                         } 
                         else 
                         {
-                            $query2 = 'SELECT item_name FROM item';
+                            $query2 = 'SELECT item_id, item_name FROM item';
                             $result2 = mysqli_query($conn2, $query2);
                             if (!$result2) 
                             {
@@ -48,9 +48,10 @@
                                 echo '<select name="itemname">';
                                 while ($row2 = mysqli_fetch_assoc($result2)) 
                                 {
-                                    echo '<option>',$row2['item_name'],'</option>';
+                                    echo '<option value="',$row2['item_id'],'">',$row2['item_name'],'</option>';
                                 }
                                 echo '</select>';
+
                             }   
                         }
                     ?>
@@ -67,7 +68,7 @@
 
 <!-- Edit Record -->
 
-    <div id="contact-form">
+    <!-- <div id="contact-form">
       <h1>Delete a Sale</h1>
       <form action="deletesales.php" method="post">
         <label>
@@ -94,7 +95,7 @@
         <label>&nbsp; </label>
         <label><input type="submit" value="Delete" class="button" /></label>
       </form>
-    </div>
+    </div>  -->
 
     <div id="contact-form">
 <?php
@@ -111,7 +112,8 @@
         echo '<td>',$row['sale_id'],'</td>';
         echo '<td>',$row['user_email'],'</td>';
         echo '<td>',$row['date'],'</td>';
-        echo '<td>',$row['quantity'],'</td>';
+        echo '<td>',$row['sale_quantity'],'</td>';
+        echo "<td><form action='deletesales.php' method='POST'><input type='hidden' name='sale_id' value='".$row['sale_id']."'/><input type='submit' name='submit-btn' value='Delete' /></form></td>";
         echo '</tr>';
     }
     echo '</table>';
