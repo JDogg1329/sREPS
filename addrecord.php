@@ -14,8 +14,8 @@ session_start();
         //$iteminsertid = $_POST['iteminsertid'];
 
 
-        $query = "insert into sale (sale_id, user_email, date, sale_quantity)
-				value (NULL, '$user_email', '$currentdate', '$quantity')";
+        $query = "insert into sale (sale_id, user_email, date, sale_quantity, item_id)
+				value (NULL, '$user_email', '$currentdate', '$quantity', '$itemname')";
 
         $query2 = "UPDATE item SET item_quantity=(item_quantity - '$quantity') WHERE item_id='$itemname'";
 

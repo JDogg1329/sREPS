@@ -15,7 +15,9 @@
             // Displays an error message
             echo '<p>Database connection failure</p>'; // not in production script
         } else {
-            $query = 'SELECT * FROM sale';
+            //$query = 'SELECT * FROM sale';
+            //$query = 'SELECT sale.sale_id, sale.user_email, sale.item_id, sale.date, sale.sale_quantity, item.item_name FROM sale INNER JOIN item ON sale.item_id=item.item_id';
+            $query = 'SELECT sale.sale_id, sale.user_email, sale.item_id, sale.date, sale.sale_quantity, item.item_name, (sale.sale_quantity * item.item_price) as totalprice FROM sale INNER JOIN item ON sale.item_id=item.item_id';
             $result = mysqli_query($conn, $query);
             if (!$result) {
                 echo '<p>Something is wrong with ', $query, '</p>';
@@ -103,16 +105,20 @@
     echo '<tr>'
           .'<th scope="col">Sale ID</th>'
           .'<th scope="col">Staff Email</th>'
+          .'<th scope="col">Item Name</th>'
           .'<th scope="col">Date</th>'
           .'<th scope="col">Quantity</th>'
+          .'<th scope="col">Total Price</th>'
           .'</tr>';
     while ($row = mysqli_fetch_assoc($result)) {
         $itemtable = '';
         echo '<tr>';
         echo '<td>',$row['sale_id'],'</td>';
         echo '<td>',$row['user_email'],'</td>';
+        echo '<td>',$row['item_name'],'</td>';
         echo '<td>',$row['date'],'</td>';
         echo '<td>',$row['sale_quantity'],'</td>';
+        echo '<td>',$row['totalprice'],'</td>';
         echo "<td><form action='deletesales.php' method='POST'><input type='hidden' name='sale_id' value='".$row['sale_id']."'/><input type='submit' name='submit-btn' value='Delete' /></form></td>";
         echo '</tr>';
     }

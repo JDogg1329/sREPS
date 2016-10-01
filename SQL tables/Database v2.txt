@@ -21,8 +21,10 @@ sale_id int not null auto_increment,
 user_email varchar(20) not null,
 date date NOT NULL,
 sale_quantity int not null,
+item_id int not null, 
 primary key (sale_id),
-Foreign KEY (user_email) references users(user_email)
+Foreign KEY (user_email) references users(user_email),
+Foreign KEY (item_id) references item(item_id)
 );
 
 create table transaction (
