@@ -32,29 +32,21 @@
 				<label>
 					<?php
                         $conn2 = @mysqli_connect($host, $user, $pwd, $sql_db);
-                        if (!$conn2) 
-                        {
+                        if (!$conn2) {
                             // Displays an error message
                             echo '<p>Database connection failure</p>'; // not in production script
-                        } 
-                        else 
-                        {
+                        } else {
                             $query2 = 'SELECT item_id, item_name FROM item';
                             $result2 = mysqli_query($conn2, $query2);
-                            if (!$result2) 
-                            {
+                            if (!$result2) {
                                 echo '<p>Something is wrong with ', $query, '</p>';
-                            } 
-                            else 
-                            {
-                                echo '<select name="itemname">';
-                                while ($row2 = mysqli_fetch_assoc($result2)) 
-                                {
+                            } else {
+                                echo '<select name="itemname" style="width: 50px !important; min-width: 150px; max-width: 150px;">';
+                                while ($row2 = mysqli_fetch_assoc($result2)) {
                                     echo '<option value="',$row2['item_id'],'">',$row2['item_name'],'</option>';
                                 }
                                 echo '</select>';
-
-                            }   
+                            }
                         }
                     ?>
 
@@ -109,6 +101,7 @@
           .'<th scope="col">Date</th>'
           .'<th scope="col">Quantity</th>'
           .'<th scope="col">Total Price</th>'
+          .'<th scope="col">Delete</th>'
           .'</tr>';
     while ($row = mysqli_fetch_assoc($result)) {
         $itemtable = '';
