@@ -19,7 +19,7 @@
                 {
                     echo "<img src='https://raw.githubusercontent.com/JDogg1329/sREPS/master/wiki/logo.jpg'>";
                     echo '<h1>Welcome to sREPS ' , $_SESSION['email'].'</h1>';
-                    echo '<p>Current date:', date('l jS \of F Y h:i:s A').'</p>';
+                    echo '<p>Current date: ', date('l jS \of F Y h:i:s A').'</p>';
                     echo '<p>Total products in inventory: ', $num_rows;
                     echo '<p>Total sales: ', $num_rows2;
 
