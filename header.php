@@ -37,10 +37,12 @@
 				<?php if (isset($_SESSION['email'])) {
     echo "<li><a href='items.php'>Inventory</a></li>";
 } ?>
+<?php if (isset($_SESSION['email'])) {
+    echo "<li><a href='reports.php'>Reports</a></li>";
+} ?>
 				<?php if (isset($_SESSION['email'])) {
     echo "<li><a href='logout.php'>Logout</a></li>";
 } ?>
-				<!--<li><a href="#">nav ul li a</a></li>-->
 			</ul>
 		</nav>
 	</header>
