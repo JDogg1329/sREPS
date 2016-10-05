@@ -67,7 +67,7 @@
                                 echo '<td>',$row['item_name'],'</td>';
                                 echo '<td>',$row['item_category'],'</td>';
                                 echo '<td>',$row['item_quantity'],'</td>';
-                                echo '<td>',$row['item_price'],'</td>';
+                                echo '<td>$',$row['item_price'],'</td>';
                                 echo '</tr>';
                             }
 

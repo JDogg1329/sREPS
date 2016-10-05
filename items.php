@@ -82,7 +82,7 @@ if (!$conn) {
                   echo '<td>',$row['item_name'],'</td>';
                   echo '<td>',$row['item_category'],'</td>';
                   echo '<td>',$row['item_quantity'],'</td>';
-                  echo '<td>',$row['item_price'],'</td>';
+                  echo '<td>$',$row['item_price'],'</td>';
                   echo "<td><form action='edititem.php' method='POST'><input type='hidden' name='item_id' value='".$row['item_id']."'/><input type='submit' name='submit-btn' value='Edit' /></form></td>";
                   echo "<td><form action='deleteitem.php' method='POST'><input type='hidden' name='item_id' value='".$row['item_id']."'/><input type='submit' name='submit-btn' value='Delete' /></form></td>";
                   echo '</tr>';
